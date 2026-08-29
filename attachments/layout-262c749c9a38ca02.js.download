@@ -1,0 +1,280 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[3185],{73074:function(e,t,r){Promise.resolve().then(r.bind(r,30983))},30983:function(e,t,r){"use strict";r.r(t),r.d(t,{Providers:function(){return Providers}});var o,n=r(57437),i=r(2265),a=r(41681),s=r(24033),l=null!=(o=a.Z.default)?o:a.Z,u=r(1523);function CacheProvider({children:e,...t}){return(0,n.jsx)(u.C,{value:function(e){let t=(0,i.useMemo)(()=>{let t=l({key:"css",prepend:!0,...e});return t.compat=!0,t},[e]);return(0,s.useServerInsertedHTML)(()=>(0,i.createElement)("style",{key:t.key,"data-emotion":`${t.key} ${Object.keys(t.inserted).join(" ")}`,dangerouslySetInnerHTML:{__html:Object.values(t.inserted).join(" ")}})),t}(t),children:e})}var d=r(9492),c=r(13610),h=r(82749);function Providers(e){let{children:t}=e;return(0,n.jsx)(h.SessionProvider,{children:(0,n.jsx)(CacheProvider,{children:(0,n.jsx)(c.ChakraProvider,{children:t})})})}(0,d.B1)({colors:{primary:{main:"#020A1D",50:"#F8FFFF",100:"#E5FFFF",200:"#CCFFFF",300:"#B3F5E6",400:"#99DBCC",500:"#7FC1B2",600:"#66A899",700:"#4D8F80",800:"#337566",900:"#1A5C4D"},slate:{main:"#020A1D",50:"rgb(248, 250, 252)",100:"rgb(241, 245, 249)",200:"rgb(226, 232, 240)",300:"rgb(203, 213, 225)",400:"rgb(148, 163, 184)",500:"rgb(100, 116, 139)",600:"rgb(71, 85, 105)",700:"rgb(51, 65, 85)",800:"rgb(30, 41, 59)",900:"rgb(15, 23, 42)"}}})},50851:function(e,t,r){"use strict";r.d(t,{O2:function(){return createCookieStorageManager},Ty:function(){return cookieStorageManagerSSR},aN:function(){return n},rr:function(){return createLocalStorageManager},sb:function(){return i}});var o="chakra-ui-color-mode";function createLocalStorageManager(e){return{ssr:!1,type:"localStorage",get(t){let r;if(!(null==globalThis?void 0:globalThis.document))return t;try{r=localStorage.getItem(e)||t}catch(e){}return r||t},set(t){try{localStorage.setItem(e,t)}catch(e){}}}}var n=createLocalStorageManager(o);function parseCookie(e,t){let r=e.match(RegExp(`(^| )${t}=([^;]+)`));return null==r?void 0:r[2]}function createCookieStorageManager(e,t){return{ssr:!!t,type:"cookie",get:r=>t?parseCookie(t,e):(null==globalThis?void 0:globalThis.document)&&parseCookie(document.cookie,e)||r,set(t){document.cookie=`${e}=${t}; max-age=31536000; path=/`}}}var i=createCookieStorageManager(o),cookieStorageManagerSSR=e=>createCookieStorageManager(o,e)},1051:function(e,t,r){"use strict";r.d(t,{SG:function(){return ColorModeProvider},t7:function(){return DarkMode},iJ:function(){return LightMode}});var o=r(85035),n={light:"chakra-ui-light",dark:"chakra-ui-dark"},i=r(50851),a=r(67673),s=r(2265),l=r(57437),noop=()=>{};function getTheme(e,t){return"cookie"===e.type&&e.ssr?e.get(t):t}function ColorModeProvider(e){let{value:t,children:r,options:{useSystemColorMode:u,initialColorMode:d,disableTransitionOnChange:c}={},colorModeManager:h=i.aN}=e,m="dark"===d?"dark":"light",[p,f]=(0,s.useState)(()=>getTheme(h,m)),[g,b]=(0,s.useState)(()=>getTheme(h)),{getSystemTheme:v,setClassName:y,setDataset:k,addListener:x}=(0,s.useMemo)(()=>(function(e={}){let{preventTransition:t=!0}=e,r={setDataset:e=>{let o=t?r.preventTransition():void 0;document.documentElement.dataset.theme=e,document.documentElement.style.colorScheme=e,null==o||o()},setClassName(e){document.body.classList.add(e?n.dark:n.light),document.body.classList.remove(e?n.light:n.dark)},query:()=>window.matchMedia("(prefers-color-scheme: dark)"),getSystemTheme(e){var t;let o=null!=(t=r.query().matches)?t:"dark"===e;return o?"dark":"light"},addListener(e){let t=r.query(),listener=t=>{e(t.matches?"dark":"light")};return"function"==typeof t.addListener?t.addListener(listener):t.addEventListener("change",listener),()=>{"function"==typeof t.removeListener?t.removeListener(listener):t.removeEventListener("change",listener)}},preventTransition(){let e=document.createElement("style");return e.appendChild(document.createTextNode("*{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}")),document.head.appendChild(e),()=>{window.getComputedStyle(document.body),requestAnimationFrame(()=>{requestAnimationFrame(()=>{document.head.removeChild(e)})})}}};return r})({preventTransition:c}),[c]),C="system"!==d||p?p:g,w=(0,s.useCallback)(e=>{let t="system"===e?v():e;f(t),y("dark"===t),k(t),h.set(t)},[h,v,y,k]);(0,a.G)(()=>{"system"===d&&b(v())},[]),(0,s.useEffect)(()=>{let e=h.get();if(e){w(e);return}if("system"===d){w("system");return}w(m)},[h,m,d,w]);let S=(0,s.useCallback)(()=>{w("dark"===C?"light":"dark")},[C,w]);(0,s.useEffect)(()=>{if(u)return x(w)},[u,x,w]);let $=(0,s.useMemo)(()=>({colorMode:null!=t?t:C,toggleColorMode:t?noop:S,setColorMode:t?noop:w,forced:void 0!==t}),[C,S,w,t]);return(0,l.jsx)(o.kc.Provider,{value:$,children:r})}function DarkMode(e){let t=(0,s.useMemo)(()=>({colorMode:"dark",toggleColorMode:noop,setColorMode:noop,forced:!0}),[]);return(0,l.jsx)(o.kc.Provider,{value:t,...e})}function LightMode(e){let t=(0,s.useMemo)(()=>({colorMode:"light",toggleColorMode:noop,setColorMode:noop,forced:!0}),[]);return(0,l.jsx)(o.kc.Provider,{value:t,...e})}ColorModeProvider.displayName="ColorModeProvider",DarkMode.displayName="DarkMode",LightMode.displayName="LightMode"},96671:function(e,t,r){"use strict";r.d(t,{f:function(){return CSSPolyfill},mA:function(){return CSSReset}});var o=r(99538),n=r(57437),i=String.raw,a=i`
+  :root,
+  :host {
+    --chakra-vh: 100vh;
+  }
+
+  @supports (height: -webkit-fill-available) {
+    :root,
+    :host {
+      --chakra-vh: -webkit-fill-available;
+    }
+  }
+
+  @supports (height: -moz-fill-available) {
+    :root,
+    :host {
+      --chakra-vh: -moz-fill-available;
+    }
+  }
+
+  @supports (height: 100dvh) {
+    :root,
+    :host {
+      --chakra-vh: 100dvh;
+    }
+  }
+`,CSSPolyfill=()=>(0,n.jsx)(o.xB,{styles:a}),CSSReset=({scope:e=""})=>(0,n.jsx)(o.xB,{styles:i`
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        font-family: system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        touch-action: manipulation;
+      }
+
+      body {
+        position: relative;
+        min-height: 100%;
+        margin: 0;
+        font-feature-settings: "kern";
+      }
+
+      ${e} :where(*, *::before, *::after) {
+        border-width: 0;
+        border-style: solid;
+        box-sizing: border-box;
+        word-wrap: break-word;
+      }
+
+      main {
+        display: block;
+      }
+
+      ${e} hr {
+        border-top-width: 1px;
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+
+      ${e} :where(pre, code, kbd,samp) {
+        font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 1em;
+      }
+
+      ${e} a {
+        background-color: transparent;
+        color: inherit;
+        text-decoration: inherit;
+      }
+
+      ${e} abbr[title] {
+        border-bottom: none;
+        text-decoration: underline;
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+      }
+
+      ${e} :where(b, strong) {
+        font-weight: bold;
+      }
+
+      ${e} small {
+        font-size: 80%;
+      }
+
+      ${e} :where(sub,sup) {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+
+      ${e} sub {
+        bottom: -0.25em;
+      }
+
+      ${e} sup {
+        top: -0.5em;
+      }
+
+      ${e} img {
+        border-style: none;
+      }
+
+      ${e} :where(button, input, optgroup, select, textarea) {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+
+      ${e} :where(button, input) {
+        overflow: visible;
+      }
+
+      ${e} :where(button, select) {
+        text-transform: none;
+      }
+
+      ${e} :where(
+          button::-moz-focus-inner,
+          [type="button"]::-moz-focus-inner,
+          [type="reset"]::-moz-focus-inner,
+          [type="submit"]::-moz-focus-inner
+        ) {
+        border-style: none;
+        padding: 0;
+      }
+
+      ${e} fieldset {
+        padding: 0.35em 0.75em 0.625em;
+      }
+
+      ${e} legend {
+        box-sizing: border-box;
+        color: inherit;
+        display: table;
+        max-width: 100%;
+        padding: 0;
+        white-space: normal;
+      }
+
+      ${e} progress {
+        vertical-align: baseline;
+      }
+
+      ${e} textarea {
+        overflow: auto;
+      }
+
+      ${e} :where([type="checkbox"], [type="radio"]) {
+        box-sizing: border-box;
+        padding: 0;
+      }
+
+      ${e} input[type="number"]::-webkit-inner-spin-button,
+      ${e} input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none !important;
+      }
+
+      ${e} input[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      ${e} input[type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+      }
+
+      ${e} input[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none !important;
+      }
+
+      ${e} ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit;
+      }
+
+      ${e} details {
+        display: block;
+      }
+
+      ${e} summary {
+        display: list-item;
+      }
+
+      template {
+        display: none;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      ${e} :where(
+          blockquote,
+          dl,
+          dd,
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6,
+          hr,
+          figure,
+          p,
+          pre
+        ) {
+        margin: 0;
+      }
+
+      ${e} button {
+        background: transparent;
+        padding: 0;
+      }
+
+      ${e} fieldset {
+        margin: 0;
+        padding: 0;
+      }
+
+      ${e} :where(ol, ul) {
+        margin: 0;
+        padding: 0;
+      }
+
+      ${e} textarea {
+        resize: vertical;
+      }
+
+      ${e} :where(button, [role="button"]) {
+        cursor: pointer;
+      }
+
+      ${e} button::-moz-focus-inner {
+        border: 0 !important;
+      }
+
+      ${e} table {
+        border-collapse: collapse;
+      }
+
+      ${e} :where(h1, h2, h3, h4, h5, h6) {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+
+      ${e} :where(button, input, optgroup, select, textarea) {
+        padding: 0;
+        line-height: inherit;
+        color: inherit;
+      }
+
+      ${e} :where(img, svg, video, canvas, audio, iframe, embed, object) {
+        display: block;
+      }
+
+      ${e} :where(img, video) {
+        max-width: 100%;
+        height: auto;
+      }
+
+      [data-js-focus-visible]
+        :focus:not([data-focus-visible-added]):not(
+          [data-focus-visible-disabled]
+        ) {
+        outline: none;
+        box-shadow: none;
+      }
+
+      ${e} select::-ms-expand {
+        display: none;
+      }
+
+      ${a}
+    `})},52733:function(e,t,r){"use strict";r.d(t,{O:function(){return useEnvironment},u:function(){return EnvironmentProvider}});var o=r(67673),n=r(2265),i=r(57437),a=(0,n.createContext)({getDocument:()=>document,getWindow:()=>window});function useEnvironment({defer:e}={}){let[,t]=(0,n.useReducer)(e=>e+1,0);return(0,o.G)(()=>{e&&t()},[e]),(0,n.useContext)(a)}function EnvironmentProvider(e){let{children:t,environment:r,disabled:o}=e,s=(0,n.useRef)(null),l=(0,n.useMemo)(()=>r||{getDocument:()=>{var e,t;return null!=(t=null==(e=s.current)?void 0:e.ownerDocument)?t:document},getWindow:()=>{var e,t;return null!=(t=null==(e=s.current)?void 0:e.ownerDocument.defaultView)?t:window}},[r]),u=!o||!r;return(0,i.jsxs)(a.Provider,{value:l,children:[t,u&&(0,i.jsx)("span",{id:"__chakra_env",hidden:!0,ref:s})]})}a.displayName="EnvironmentContext",EnvironmentProvider.displayName="EnvironmentProvider"},13610:function(e,t,r){"use strict";r.r(t),r.d(t,{ChakraBaseProvider:function(){return h},ChakraProvider:function(){return c}});var o=r(96671),n=r(69782),i=r(33962),a=r(1051),s=r(52733),l=r(57437),ChakraProvider=e=>{let{children:t,colorModeManager:r,portalZIndex:u,resetScope:d,resetCSS:c=!0,theme:h={},environment:m,cssVarsRoot:p,disableEnvironment:f,disableGlobalStyle:g}=e,b=(0,l.jsx)(s.u,{environment:m,disabled:f,children:t});return(0,l.jsx)(i.ThemeProvider,{theme:h,cssVarsRoot:p,children:(0,l.jsxs)(a.SG,{colorModeManager:r,options:h.config,children:[c?(0,l.jsx)(o.mA,{scope:d}):(0,l.jsx)(o.f,{}),!g&&(0,l.jsx)(i.GlobalStyle,{}),u?(0,l.jsx)(n.h,{zIndex:u,children:b}):b]})})},u=r(82322),d=r(6161),createChakraProvider=e=>function({children:t,theme:r=e,toastOptions:o,...n}){return(0,l.jsxs)(ChakraProvider,{theme:r,...n,children:[(0,l.jsx)(d.Qi,{value:null==o?void 0:o.defaultOptions,children:t}),(0,l.jsx)(d.VW,{...o})]})},c=createChakraProvider(u.rS),h=createChakraProvider(u.wE)},33962:function(e,t,r){"use strict";r.r(t),r.d(t,{CSSVars:function(){return CSSVars},GlobalStyle:function(){return GlobalStyle},StylesProvider:function(){return c},ThemeProvider:function(){return ThemeProvider},createStylesContext:function(){return createStylesContext},useStyles:function(){return h}});var o=r(85035),n=r(2265);function createContext(e={}){let{strict:t=!0,errorMessage:r="useContext: `context` is undefined. Seems you forgot to wrap component within the Provider",name:o}=e,i=(0,n.createContext)(void 0);return i.displayName=o,[i.Provider,function useContext(){var e;let o=(0,n.useContext)(i);if(!o&&t){let t=Error(r);throw t.name="ContextError",null==(e=Error.captureStackTrace)||e.call(Error,t,useContext),t}return o},i]}var i=r(50446),a=r(19307),s=r(62788),l=r(1523),u=r(99538),d=r(57437);function ThemeProvider(e){let{cssVarsRoot:t,theme:r,children:o}=e,a=(0,n.useMemo)(()=>(0,i.c0)(r),[r]);return(0,d.jsxs)(l.a,{theme:a,children:[(0,d.jsx)(CSSVars,{root:t}),o]})}function CSSVars({root:e=":host, :root"}){let t=[e,"[data-theme]"].join(",");return(0,d.jsx)(u.xB,{styles:e=>({[t]:e.__cssVars})})}var[c,h]=createContext({name:"StylesContext",errorMessage:"useStyles: `styles` is undefined. Seems you forgot to wrap the components in `<StylesProvider />` "});function createStylesContext(e){return createContext({name:`${e}StylesContext`,errorMessage:`useStyles: "styles" is undefined. Seems you forgot to wrap the components in "<${e} />" `})}function GlobalStyle(){let{colorMode:e}=(0,o.If)();return(0,d.jsx)(u.xB,{styles:t=>{let r=(0,a.Wf)(t,"styles.global"),o=(0,s.Pu)(r,{theme:t,colorMode:e});if(!o)return;let n=(0,i.iv)(o)(t);return n}})}}},function(e){e.O(0,[395,5512,6161,3232,2971,2472,1744],function(){return e(e.s=73074)}),_N_E=e.O()}]);

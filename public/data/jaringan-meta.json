@@ -1,0 +1,56 @@
+{
+  "ruas": 93,
+  "titik": 75,
+  "kabupaten": [
+    {
+      "id": "48985e2b-637b-4c9f-b19f-2941952b4524",
+      "name": "KOTA TANGERANG",
+      "code": 3671
+    },
+    {
+      "id": "f77a8c36-42bb-41d9-956e-1099648a8bf2",
+      "name": "KOTA TANGERANG SELATAN",
+      "code": 3674
+    },
+    {
+      "id": "ae73a891-61ca-49df-8a2d-0b4fadac7fc7",
+      "name": "KOTA CILEGON",
+      "code": 3672
+    },
+    {
+      "id": "11bd8294-cec4-4315-aae0-7d6c3e4e64da",
+      "name": "KOTA SERANG",
+      "code": 3673
+    },
+    {
+      "id": "40715502-a4b1-4c5d-930d-0f8cd975b2c3",
+      "name": "KAB. TANGERANG",
+      "code": 3603
+    },
+    {
+      "id": "a0ed68f5-7bb0-48a2-93b1-51f7cb0b2555",
+      "name": "KAB. SERANG",
+      "code": 3604
+    },
+    {
+      "id": "038b841c-5d42-46a5-bc11-f727110dc970",
+      "name": "KAB. LEBAK",
+      "code": 3602
+    },
+    {
+      "id": "eb80b4a8-4144-41c2-a3fd-1a68db989536",
+      "name": "KAB. PANDEGLANG",
+      "code": 3601
+    }
+  ],
+  "ruasPerKabupaten": {
+    "KOTA CILEGON": 3,
+    "KOTA TANGERANG": 7,
+    "KAB. SERANG": 8,
+    "KOTA SERANG": 24,
+    "KAB. PANDEGLANG": 18,
+    "KOTA TANGERANG SELATAN": 11,
+    "KAB. LEBAK": 14,
+    "KAB. TANGERANG": 8
+  }
+}

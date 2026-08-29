@@ -1,0 +1,205 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Source Serif 4", "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  --color-background: #f1ebe1;
+  --color-foreground: #15202b;
+  --color-card: #fbf7f0;
+  --color-card-foreground: #15202b;
+  --color-popover: #fffcf7;
+  --color-popover-foreground: #15202b;
+  --color-primary: #163a4a;
+  --color-primary-foreground: #f6f1e7;
+  --color-secondary: #e6ddd0;
+  --color-secondary-foreground: #1b2a34;
+  --color-muted: #e8e0d4;
+  --color-muted-foreground: #5c6b76;
+  --color-accent: #2a7a72;
+  --color-accent-foreground: #f4fbfa;
+  --color-destructive: #9b3a32;
+  --color-destructive-foreground: #fdf6f4;
+  --color-border: #d5cbbd;
+  --color-input: #d5cbbd;
+  --color-ring: #2a7a72;
+  --color-sidebar: #102833;
+  --color-sidebar-foreground: #e8efe8;
+  --color-sidebar-muted: #8aa0a8;
+  --color-sidebar-accent: #1e4a58;
+  --color-paper: #fbf7f0;
+  --color-ink: #15202b;
+  --color-good: #2f6b4f;
+  --color-warn: #8a5a1e;
+  --color-bad: #9b3a32;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+  --radius: 12px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-sheet {
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .kir-plaque {
+    box-shadow: none !important;
+    page-break-after: always;
+    break-after: page;
+    width: 277mm;
+    height: 190mm;
+  }
+  .kir-lampiran {
+    page-break-before: always;
+    break-before: page;
+  }
+}
+
+.kir-plaque {
+  aspect-ratio: 297 / 210;
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
+  min-height: 22rem;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 28px rgb(21 32 43 / 0.08);
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm;
+  }
+}
+
+.print-only {
+  display: none;
+}
+
+.simaset-map {
+  isolation: isolate;
+  z-index: 0;
+}
+.simaset-pin-wrap {
+  background: none;
+  border: none;
+}
+.simaset-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-size: 11px;
+  font-weight: 600;
+  border: 2px solid var(--color-card);
+  box-shadow: 0 1px 4px rgb(21 32 43 / 0.28);
+}
+.simaset-pin.is-active {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+.simaset-popup-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 13px;
+}
+.simaset-popup-meta {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--color-muted-foreground);
+}
+.simaset-popup-actions {
+  margin: 8px 0 0;
+  font-size: 12px;
+}
+.simaset-popup-actions a {
+  color: var(--color-accent);
+}
+
+.simaset-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  border: 2px solid var(--color-card);
+  box-shadow: 0 1px 3px rgb(21 32 43 / 0.35);
+}
+.simaset-dot-rambu {
+  background: var(--color-warn);
+}
+.simaset-dot-pju {
+  background: var(--color-accent);
+}
+.simaset-dot-apill {
+  background: var(--color-bad);
+}
+.simaset-dot-marka {
+  background: var(--color-paper);
+}
+.simaset-dot-appj {
+  background: var(--color-primary);
+}
+.simaset-swatch-ruas {
+  background: var(--color-accent);
+}
+.simaset-swatch-titik {
+  background: var(--color-warn);
+}
+.simaset-swatch-kib {
+  background: var(--color-primary);
+}
+
+
